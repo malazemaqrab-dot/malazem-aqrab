@@ -521,16 +521,11 @@ function showPage(n){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function openPdfViewer(u){
-    if(!u) return;
-
-    document.getElementById("pdfFrame").src = u + "#toolbar=1&navpanes=1&scrollbar=1&page=1&view=FitH";
-
-    document.getElementById("pdfModal").style.display = "block";
-    document.body.style.overflow = "hidden";
+function openPdfViewer(url){
+    if(!url) return;
+    window.open(url, "_blank");
 }
-function closePdfViewer(){document.getElementById('pdfFrame').src='';document.getElementById('pdfModal').style.display='none';document.body.style.overflow='';}
-document.addEventListener('click',function(e){var m=document.getElementById('pdfModal');if(m&&m.style.display==='block'&&e.target===m)closePdfViewer();});
+
 document.addEventListener('click',function(e){var l=e.target.closest('a[href="#"]');if(l)e.preventDefault();});
 
 initFeatured();
